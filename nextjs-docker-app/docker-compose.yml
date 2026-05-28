@@ -1,0 +1,24 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+
+    # Docker Compose Watch - syncs files from host to container
+    develop:
+      watch:
+        # Sync source files (triggers Next.js hot-reload)
+        - action: sync
+          path: ./src/app
+          target: /application/src/app
+          ignore:
+            - node_modules/
+
+        # Sync public assets
+        - action: sync
+          path: ./public
+          target: /application/public
+
+        # Rebuild container when dependencies change
+        - action: rebuild
+          path: ./package.json

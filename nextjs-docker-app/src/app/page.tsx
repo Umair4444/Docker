@@ -29,8 +29,8 @@ export default function Home() {
             {GREETINGS[index]}
           </p>
         </div>
-        <button 
-          onClick={nextGreeting} 
+        <button
+          onClick={nextGreeting}
           className={styles.button}
           aria-label="Change greeting"
         >
